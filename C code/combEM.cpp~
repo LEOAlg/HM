@@ -172,7 +172,26 @@ int main(int argc, char *argv[]){
 	
     n = Dpower.n_rows;	// # CONFIGURATIONS
     m = Dpower.n_cols;	// # APPLICATIONS	
+	/*
+	ifstream infname, inepsilon, initrlimit;
 	
+    double epsilon[m][2], iteration_limit[m][2];
+    string filename[m];
+
+	infname.open("data/filename.txt");
+	inepsilon.open("data/epsilon.txt");
+	initrlimit.open("data/iteration_limit.txt");
+    for (int i = 0; i < m; i++) {
+		string s1, s2, s3, s4, s5;
+		infname >> filename[i];
+		inepsilon >> s1>> s2>> s3;
+		epsilon[i][0] = stoi(s1);
+		epsilon[i][1] = stoi(s2);	
+		initrlimit >> s4 >> s5;
+		iteration_limit[i][0] = stoi(s4);
+		iteration_limit[i][1] = stoi(s5);
+	}
+*/
 	// START EM ALGORITHM FOR POWER	AND PERFORMANCE  
 	#pragma omp parallel sections		
 	{
