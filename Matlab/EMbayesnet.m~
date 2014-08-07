@@ -47,7 +47,7 @@ fprintf(fileID,'i \t filename \t accuracy  \t elapsedTime \t n \t samples \t m \
 file_entry1 = [n, numSamples, m, iteration_limit];
 fclose(fileID);
 
-for i = 1:m
+for i = 7
 %for j = 1:numel(DifficultApps)
  %   i = DifficultApps(j);
     %% initializing the vector with missing values
