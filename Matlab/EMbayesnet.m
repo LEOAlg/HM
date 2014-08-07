@@ -23,7 +23,8 @@ id2 = randperm(n); id2 = id2(1:numSamples); %random points
 %% Create folder
 Y_nameId = 1; %% Change this variable for performance = 1/system-power = 2;
 
-parfor Y_nameId = 1:2,
+%parfor Y_nameId = 1:2,
+for Y_nameId = 1:2,
     i = 1;
 	[ accuracy, w_pred ] = splitEM( X,Z,Y_nameId,id1,i );
     wl{Y_nameId} = w_pred;
