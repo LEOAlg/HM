@@ -14,7 +14,7 @@ Y_name{2} = 'Power';
 pi = 1;
 tau = 1;
 epsilon = 10000;
-iteration_limit = 50;
+iteration_limit = 3;
 accuracy = zeros(m,1);
 model = 'Quadratic';
 whichstats = {'yhat','r','mse','rsquare','adjrsquare','beta','leverage','cookd','tstat'};
@@ -29,10 +29,11 @@ numSamples = sum(W)
 
 %% Create folder
 Y_nameId = 1; %% Change this variable for performance = 1/system-power = 2;
-u = Z{Y_nameId};  
-for j = 1:m;    y{j} = u(:,j);  end
 
-i = 1;
+parfor Y_nameId = 1:2,
+	u = Z{Y_nameId}; 
+	for j = 1:m;    y{j} = u(:,j);  end
+	i = 1;
     %% initializing the vector with missing values
     Y_known = W.*y{i};
     y_em = y; 
@@ -83,4 +84,5 @@ i = 1;
    
     fprintf('accuracy = %f, time = %f\n\n', accuracy(i), elapsedTime);
 
-wl = w_pred;
+wl{Y_nameId} = w_pred;
+end
